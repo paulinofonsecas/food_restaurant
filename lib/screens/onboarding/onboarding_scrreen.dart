@@ -47,7 +47,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             const Spacer(flex: 2),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(

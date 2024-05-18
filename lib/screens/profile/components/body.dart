@@ -13,11 +13,11 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Text("Account Settings",
                   style: Theme.of(context).textTheme.headlineMedium),
               Text(
@@ -61,12 +61,12 @@ class Body extends StatelessWidget {
 
 class ProfileMenuCard extends StatelessWidget {
   const ProfileMenuCard({
-    Key? key,
+    super.key,
     this.title,
     this.subTitle,
     this.svgSrc,
     this.press,
-  }) : super(key: key);
+  });
 
   final String? title, subTitle, svgSrc;
   final VoidCallback? press;
@@ -74,7 +74,7 @@ class ProfileMenuCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: defaultPadding / 2),
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(8)),
         onTap: press,

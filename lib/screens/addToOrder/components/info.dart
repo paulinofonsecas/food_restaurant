@@ -5,8 +5,8 @@ import '../../../constants.dart';
 
 class Info extends StatelessWidget {
   const Info({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class Info extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(height: defaultPadding),
+        const SizedBox(height: kDefaultPadding),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

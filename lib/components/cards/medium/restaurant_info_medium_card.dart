@@ -6,14 +6,14 @@ import '../../small_dot.dart';
 
 class RestaurantInfoMediumCard extends StatelessWidget {
   const RestaurantInfoMediumCard({
-    Key? key,
+    super.key,
     required this.image,
     required this.name,
     required this.location,
     required this.rating,
     required this.delivertTime,
     required this.press,
-  }) : super(key: key);
+  });
 
   final String image, name, location;
   final double rating;
@@ -36,20 +36,20 @@ class RestaurantInfoMediumCard extends StatelessWidget {
                 child: Image.asset(image, fit: BoxFit.cover),
               ),
             ),
-            const SizedBox(height: defaultPadding / 2),
+            const SizedBox(height: kDefaultPadding / 2),
             Text(
               name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            const SizedBox(height: defaultPadding / 4),
+            const SizedBox(height: kDefaultPadding / 4),
             Text(
               location,
               maxLines: 1,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            const SizedBox(height: defaultPadding / 2),
+            const SizedBox(height: kDefaultPadding / 2),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

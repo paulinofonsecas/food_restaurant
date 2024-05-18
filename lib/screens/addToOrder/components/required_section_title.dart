@@ -4,9 +4,9 @@ import '../../../constants.dart';
 
 class RequiredSectionTitle extends StatelessWidget {
   const RequiredSectionTitle({
-    Key? key,
+    super.key,
     required this.title,
-  }) : super(key: key);
+  });
 
   final String title;
 
@@ -22,8 +22,8 @@ class RequiredSectionTitle extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(
-            horizontal: defaultPadding / 2,
-            vertical: defaultPadding / 4,
+            horizontal: kDefaultPadding / 2,
+            vertical: kDefaultPadding / 4,
           ),
           decoration: BoxDecoration(
               color: accentColor.withOpacity(0.2),

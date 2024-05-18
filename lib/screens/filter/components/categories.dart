@@ -5,8 +5,8 @@ import '../../../constants.dart';
 
 class Categories extends StatefulWidget {
   const Categories({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _CategoriesState createState() => _CategoriesState();
@@ -23,11 +23,11 @@ class _CategoriesState extends State<Categories> {
           press: () {},
           isMainSection: false,
         ),
-        const SizedBox(height: defaultPadding),
+        const SizedBox(height: kDefaultPadding),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Wrap(
-            spacing: defaultPadding / 2,
+            spacing: kDefaultPadding / 2,
             children: List.generate(
               demoCategories.length,
               (index) => ElevatedButton(

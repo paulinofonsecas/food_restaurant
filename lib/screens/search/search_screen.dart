@@ -7,7 +7,7 @@ import '../../constants.dart';
 import '../../demoData.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+  const SearchScreen({super.key});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -44,31 +44,34 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Text(
                 'Search',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               const SearchForm(),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Text(
                 _showSearchResult ? "Search Results" : "Top Restaurants",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Expanded(
                 child: ListView.builder(
                   itemCount: _isLoading ? 2 : demoMediumCardData.length,
                   itemBuilder: (context, index) {
-                    final double rating = (demoMediumCardData[index]["rating"] as double?) ?? 0.0;
-                    final int deliveryTime = (demoMediumCardData[index]["deliveryTime"] as int?) ?? 0;
+                    final double rating =
+                        (demoMediumCardData[index]["rating"] as double?) ?? 0.0;
+                    final int deliveryTime =
+                        (demoMediumCardData[index]["deliveryTime"] as int?) ??
+                            0;
                     return Padding(
-                      padding: const EdgeInsets.only(bottom: defaultPadding),
+                      padding: const EdgeInsets.only(bottom: kDefaultPadding),
                       child: _isLoading
                           ? const BigCardScalton()
                           : RestaurantInfoBigCard(
@@ -77,7 +80,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               rating: rating,
                               numOfRating: 200,
                               deliveryTime: deliveryTime,
-                              foodType: ["Fried Chicken"],
+                              foodType: const ["Fried Chicken"],
                               press: () {},
                             ),
                     );
@@ -93,7 +96,7 @@ class _SearchScreenState extends State<SearchScreen> {
 }
 
 class SearchForm extends StatefulWidget {
-  const SearchForm({Key? key}) : super(key: key);
+  const SearchForm({super.key});
 
   @override
   State<SearchForm> createState() => _SearchFormState();
@@ -119,7 +122,7 @@ class _SearchFormState extends State<SearchForm> {
             // Once user press on submit
           } else {}
         },
-        validator: requiredValidator,
+        validator: requiredValidator.call,
         style: Theme.of(context).textTheme.labelLarge,
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(

@@ -4,12 +4,12 @@ import '../../../constants.dart';
 
 class OrderedItemCard extends StatelessWidget {
   const OrderedItemCard({
-    Key? key,
+    super.key,
     required this.numOfItem,
     required this.title,
     required this.description,
     required this.price,
-  }) : super(key: key);
+  });
   final int numOfItem;
   final String? title, description;
   final double? price;
@@ -22,7 +22,7 @@ class OrderedItemCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             NumOfItems(numOfItem: numOfItem),
-            const SizedBox(width: defaultPadding * 0.75),
+            const SizedBox(width: kDefaultPadding * 0.75),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,7 @@ class OrderedItemCard extends StatelessWidget {
                     title!,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  const SizedBox(height: defaultPadding / 4),
+                  const SizedBox(height: kDefaultPadding / 4),
                   Text(
                     description!,
                     style: Theme.of(context).textTheme.bodyMedium,
@@ -41,7 +41,7 @@ class OrderedItemCard extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(width: defaultPadding / 2),
+            const SizedBox(width: kDefaultPadding / 2),
             Text(
               "USD$price",
               style: Theme.of(context)
@@ -51,7 +51,7 @@ class OrderedItemCard extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(height: defaultPadding / 2),
+        const SizedBox(height: kDefaultPadding / 2),
         const Divider(),
       ],
     );

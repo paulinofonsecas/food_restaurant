@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:foodly_ui/screens/details/details_screen.dart';
+
 import '../../../components/cards/big/restaurant_info_big_card.dart';
 import '../../../components/scalton/big_card_scalton.dart';
 import '../../../constants.dart';
-
 import '../../../demoData.dart';
 
 class Body extends StatefulWidget {
-  const Body({Key? key}) : super(key: key);
+  const Body({super.key});
 
   @override
   _BodyState createState() => _BodyState();
@@ -31,20 +31,22 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         child: ListView.builder(
           itemCount: isLoading ? 3 : demoDataLength,
           itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(bottom: defaultPadding),
+            padding: const EdgeInsets.only(bottom: kDefaultPadding),
             child: isLoading
                 ? const BigCardScalton()
                 : RestaurantInfoBigCard(
                     images: demoBigImages..shuffle(),
                     name: demoMediumCardData[index]["name"],
                     rating: demoMediumCardData[index]["rating"],
-                    numOfRating: demoMediumCardData[index]["numOfRating"],
-                    deliveryTime: demoMediumCardData[index]["deliveryTime"],
-                    foodType: demoMediumCardData[index]["foodType"],
+                    numOfRating: demoMediumCardData[index]["numOfRating"] ?? 0,
+                    deliveryTime:
+                        demoMediumCardData[index]["deliveryTime"] ?? 12,
+                    foodType:
+                        demoMediumCardData[index]["foodType"] ?? ['frango'],
                     press: () {
                       Navigator.push(
                         context,

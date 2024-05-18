@@ -19,13 +19,13 @@ class FilterScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: defaultPadding),
+              SizedBox(height: kDefaultPadding),
               Categories(),
-              SizedBox(height: defaultPadding),
+              SizedBox(height: kDefaultPadding),
               Dietaries(),
-              SizedBox(height: defaultPadding),
+              SizedBox(height: kDefaultPadding),
               PriceRange(),
-              SizedBox(height: defaultPadding),
+              SizedBox(height: kDefaultPadding),
             ],
           ),
         ),

@@ -3,12 +3,12 @@ import 'package:form_field_validator/form_field_validator.dart';
 
 // clolors that we use in our app
 const titleColor = Color(0xFF010F07);
-const primaryColor = Color(0xFFffc8dd);
+const primaryColor = Color.fromARGB(255, 255, 200, 226);
 const accentColor = Color(0xFFcddafd);
 const bodyTextColor = Color(0xFF868686);
 const inputColor = Color(0xFFFBFBFB);
 
-const double defaultPadding = 16;
+const double kDefaultPadding = 16;
 const Duration kDefaultDuration = Duration(milliseconds: 250);
 
 const TextStyle kButtonTextStyle = TextStyle(
@@ -18,8 +18,8 @@ const TextStyle kButtonTextStyle = TextStyle(
 );
 
 const EdgeInsets kTextFieldPadding = EdgeInsets.symmetric(
-  horizontal: defaultPadding,
-  vertical: defaultPadding,
+  horizontal: kDefaultPadding,
+  vertical: kDefaultPadding,
 );
 
 // Text Field Decoration

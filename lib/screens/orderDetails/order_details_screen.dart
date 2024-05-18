@@ -4,7 +4,7 @@ import 'package:foodly_ui/screens/home/home_screen.dart';
 import '../../constants.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
-  const OrderDetailsScreen({Key? key}) : super(key: key);
+  const OrderDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,16 +14,16 @@ class OrderDetailsScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             children: [
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               // Placeholder for future order summary
               Text(
                 "Your order details will be displayed here.",
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-              const SizedBox(height: defaultPadding * 2),
+              const SizedBox(height: kDefaultPadding * 2),
               PrimaryButton(
                 text: "Continue Shopping",
                 press: () {
@@ -31,7 +31,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                      builder: (context) => const HomeScreen(),
                     ),
                   );
                 },

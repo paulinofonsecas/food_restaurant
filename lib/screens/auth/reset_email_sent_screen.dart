@@ -14,7 +14,7 @@ class ResetEmailSentScreen extends StatelessWidget {
         title: const Text("Forgot Password"),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -22,7 +22,7 @@ class ResetEmailSentScreen extends StatelessWidget {
                 title: "Reset email sent",
                 text:
                     "We have sent a instructions email to \ntheflutterway@email.com."),
-            const SizedBox(height: defaultPadding),
+            const SizedBox(height: kDefaultPadding),
             ElevatedButton(
               onPressed: () {},
               child: const Text("Send again"),

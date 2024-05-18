@@ -5,8 +5,8 @@ import '../../../constants.dart';
 
 class PromotionBanner extends StatefulWidget {
   const PromotionBanner({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _PromotionBannerState createState() => _PromotionBannerState();
@@ -27,7 +27,7 @@ class _PromotionBannerState extends State<PromotionBanner> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: isLoading
           ? const AspectRatio(
               aspectRatio: 1.97,

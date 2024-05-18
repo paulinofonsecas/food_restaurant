@@ -5,8 +5,8 @@ import '../../../constants.dart';
 
 class Dietaries extends StatefulWidget {
   const Dietaries({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _DietariesState createState() => _DietariesState();
@@ -24,7 +24,7 @@ class _DietariesState extends State<Dietaries> {
           press: () {},
           isMainSection: false,
         ),
-        const SizedBox(height: defaultPadding),
+        const SizedBox(height: kDefaultPadding),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Wrap(

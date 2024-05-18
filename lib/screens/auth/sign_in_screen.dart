@@ -1,9 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodly_ui/entry_point.dart';
-import 'package:foodly_ui/screens/home/home_screen.dart';
 import '../../components/buttons/socal_button.dart';
 import '../../components/welcome_text.dart';
 import '../../constants.dart';
@@ -38,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
   _SignInScreenState() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-        // print('User is currently signed out!');
+        print('User is currently signed out!');
       } else {
         print('User is signed in!');
         Navigator.push(
@@ -58,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -66,12 +64,16 @@ class _SignInScreenState extends State<SignInScreen> {
                 title: "Welcome to หิวไก่",
                 text: "click for login by your google",
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
 
               // Google
               SocalButton(
                 press: () async {
-                  await signInWithGoogle();
+                  // await signInWithGoogle();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const EntryPoint()),
+                  );
                 },
                 text: "Connect with Google",
                 color: const Color(0xFF4285F4),
@@ -79,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   'assets/icons/google.svg',
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
             ],
           ),
         ),

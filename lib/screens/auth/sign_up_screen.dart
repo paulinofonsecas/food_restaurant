@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -30,7 +30,7 @@ class SignUpScreen extends StatelessWidget {
 
               // Sign Up Form
               const SignUpForm(),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
 
               // Already have account
               Center(
@@ -57,7 +57,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Center(
                 child: Text(
                   "By Signing up you agree to our Terms \nConditions & Privacy Policy.",
@@ -65,9 +65,9 @@ class SignUpScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               kOrText,
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
 
               // Facebook
               SocalButton(
@@ -82,7 +82,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
 
               // Google
               SocalButton(
@@ -93,7 +93,7 @@ class SignUpScreen extends StatelessWidget {
                   'assets/icons/google.svg',
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
             ],
           ),
         ),

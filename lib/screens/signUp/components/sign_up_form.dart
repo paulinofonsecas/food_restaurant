@@ -23,27 +23,27 @@ class _SignUpFormState extends State<SignUpForm> {
         children: [
           // Full Name Field
           TextFormField(
-            validator: requiredValidator,
+            validator: requiredValidator.call,
             onSaved: (value) {},
             textInputAction: TextInputAction.next,
             decoration: const InputDecoration(hintText: "Full Name"),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: kDefaultPadding),
 
           // Email Field
           TextFormField(
-            validator: emailValidator,
+            validator: emailValidator.call,
             onSaved: (value) {},
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email Address"),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: kDefaultPadding),
 
           // Password Field
           TextFormField(
             obscureText: _obscureText,
-            validator: passwordValidator,
+            validator: passwordValidator.call,
             textInputAction: TextInputAction.next,
             onChanged: (value) {},
             onSaved: (value) {},
@@ -61,7 +61,7 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: kDefaultPadding),
 
           // Confirm Password Field
           TextFormField(
@@ -80,7 +80,7 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: kDefaultPadding),
           // Sign Up Button
           ElevatedButton(
             onPressed: () {

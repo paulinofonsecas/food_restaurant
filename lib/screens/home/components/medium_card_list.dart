@@ -8,8 +8,8 @@ import '../../details/details_screen.dart';
 
 class MediumCardList extends StatefulWidget {
   const MediumCardList({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _MediumCardListState createState() => _MediumCardListState();
@@ -44,8 +44,8 @@ class _MediumCardListState extends State<MediumCardList> {
                   itemCount: data.length,
                   itemBuilder: (context, index) => Padding(
                     padding: EdgeInsets.only(
-                      left: defaultPadding,
-                      right: (data.length - 1) == index ? defaultPadding : 0,
+                      left: kDefaultPadding,
+                      right: (data.length - 1) == index ? kDefaultPadding : 0,
                     ),
                     child: RestaurantInfoMediumCard(
                       image: data[index]['image'],
@@ -76,7 +76,7 @@ class _MediumCardListState extends State<MediumCardList> {
         children: List.generate(
           2,
           (index) => const Padding(
-            padding: EdgeInsets.only(left: defaultPadding),
+            padding: EdgeInsets.only(left: kDefaultPadding),
             child: MediumCardScalton(),
           ),
         ),

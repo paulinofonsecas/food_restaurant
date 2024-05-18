@@ -16,7 +16,7 @@ class NumberVerifyScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -27,7 +27,7 @@ class NumberVerifyScreen extends StatelessWidget {
 
               // OTP form
               const OtpForm(),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Center(
                 child: Text.rich(
                   TextSpan(
@@ -49,14 +49,14 @@ class NumberVerifyScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               const Center(
                 child: Text(
                   "By Signing up you agree to our Terms \nConditions & Privacy Policy.",
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
             ],
           ),
         ),

@@ -13,10 +13,9 @@ import '../../demoData.dart';
 import '../details/details_screen.dart';
 import '../featured/featurred_screen.dart';
 import 'components/medium_card_list.dart';
-import 'components/promotion_banner.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -30,29 +29,29 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void requestLocation() async {
-    Location location = new Location();
+    Location location = Location();
 
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-    LocationData _locationData;
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
+    LocationData locationData;
 
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
+    serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
         return;
       }
     }
 
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
+    permissionGranted = await location.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) {
         return;
       }
     }
 
-    _locationData = await location.getLocation();
+    locationData = await location.getLocation();
     location.onLocationChanged.listen((LocationData currentLocation) async {
       double? lat = currentLocation.latitude;
       double? lon = currentLocation.longitude;
@@ -73,9 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
             "https://nominatim.openstreetmap.org/reverse?lat=$lat&lon=$lon&format=jsonv2&accept-language=th"),
         headers: {'Accept-Language': 'th'});
     dynamic json = jsonDecode(res.body);
-    print(json);
+    // print(json);
     String output =
-        "${json['address']['road']}, ${json['address']['neighbourhood']}, ${json['address']['city']}";
+        "${json['address']['road']}, ${json['address']['city']}, ${json['address']['state']}";
 
     return output;
   }
@@ -97,35 +96,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        title: Column(
-          children: [
-            Text(
-              "Delivery to".toUpperCase(),
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(color: primaryColor),
-            ),
-            Text(
-              locationStr,
-              style: const TextStyle(color: Colors.black),
-            )
-          ],
-        ),
+        title: const Text('Restaurantes'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: defaultPadding),
+              InfoLocationToDeliveryWidget(locationStr: locationStr),
+              const SizedBox(height: kDefaultPadding),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                 child: BigCardImageSlide(images: demoBigImages),
               ),
-              const SizedBox(height: defaultPadding * 2),
+              const SizedBox(height: kDefaultPadding * 2),
               SectionTitle(
-                title: "Featured Partners",
+                title: "Principais parceiros",
                 press: () => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -133,14 +120,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               const MediumCardList(),
               const SizedBox(height: 20),
               // Banner
               // const PromotionBanner(), หน้าโปรโมชั่น
               const SizedBox(height: 20),
               SectionTitle(
-                title: "Best Pick",
+                title: "Melhores pratos",
                 press: () => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -151,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 16),
               const MediumCardList(),
               const SizedBox(height: 20),
-              SectionTitle(title: "All Restaurants", press: () {}),
+              SectionTitle(title: "Todos os restaurantes", press: () {}),
               const SizedBox(height: 16),
 
               // Demo list of Big Cards
@@ -159,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: demoMediumCardData.map((restaurant) {
                   return Padding(
                     padding: const EdgeInsets.fromLTRB(
-                      defaultPadding, 0, defaultPadding, defaultPadding),
+                        kDefaultPadding, 0, kDefaultPadding, kDefaultPadding),
                     child: RestaurantInfoBigCard(
                       // Use demoBigImages list
                       images: [restaurant["image"]],
@@ -187,3 +174,34 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+class InfoLocationToDeliveryWidget extends StatelessWidget {
+  const InfoLocationToDeliveryWidget({
+    super.key,
+    required this.locationStr,
+  });
+
+  final String locationStr;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Localização atual".toUpperCase(),
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(color: Colors.black),
+          ),
+          Text(
+            locationStr,
+            style: const TextStyle(color: Colors.black),
+          )
+        ],
+      ),
+    );
+  }
+}

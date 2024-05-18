@@ -25,7 +25,7 @@ final InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
   fillColor: inputColor,
   filled: true,
   // hintStyle: Theme.of(context).textTheme.bodyMedium,
-  contentPadding: const EdgeInsets.all(defaultPadding),
+  contentPadding: const EdgeInsets.all(kDefaultPadding),
   border: kDefaultOutlineInputBorder,
   enabledBorder: kDefaultOutlineInputBorder,
   focusedBorder: kDefaultOutlineInputBorder.copyWith(

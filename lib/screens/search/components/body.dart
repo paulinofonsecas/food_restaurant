@@ -45,23 +45,23 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 16),
             Text('Search', style: Theme.of(context).textTheme.headlineMedium),
-            const SizedBox(height: defaultPadding),
+            const SizedBox(height: kDefaultPadding),
             buildSearchForm(),
-            const SizedBox(height: defaultPadding),
+            const SizedBox(height: kDefaultPadding),
             Text(_showSearchResult ? "Search Results" : "Top Restaurants",
                 style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: defaultPadding),
+            const SizedBox(height: kDefaultPadding),
             Expanded(
               child: ListView.builder(
                 itemCount: _isLoading ? 2 : 5, //5 is demo length of your data
                 itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.only(bottom: defaultPadding),
+                  padding: const EdgeInsets.only(bottom: kDefaultPadding),
                   child: _isLoading
                       ? const BigCardScalton()
                       : RestaurantInfoBigCard(
@@ -100,7 +100,7 @@ class _BodyState extends State<Body> {
             showResult();
           } else {}
         },
-        validator: requiredValidator,
+        validator: requiredValidator.call,
         style: Theme.of(context).textTheme.labelLarge,
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(

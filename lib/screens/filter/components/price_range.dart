@@ -16,17 +16,17 @@ class PriceRange extends StatelessWidget {
           press: () {},
           isMainSection: false,
         ),
-        const SizedBox(height: defaultPadding),
+        const SizedBox(height: kDefaultPadding),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              const SizedBox(width: defaultPadding),
+              const SizedBox(width: kDefaultPadding),
               ...List.generate(
                 // For demo i'm using length 5
                 0, // Price limit
                 (index) => Padding(
-                  padding: const EdgeInsets.only(right: defaultPadding),
+                  padding: const EdgeInsets.only(right: kDefaultPadding),
                   child: RoundedButton(
                     index: index,
                     isActive: index == 2, // for demo just select 3rd item
@@ -44,11 +44,11 @@ class PriceRange extends StatelessWidget {
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
-    Key? key,
+    super.key,
     this.isActive = false,
     required this.index,
     required this.press,
-  }) : super(key: key);
+  });
 
   final bool isActive;
   final int index;

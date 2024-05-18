@@ -24,7 +24,7 @@ class _PghoneLoginScreenState extends State<PghoneLoginScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,11 +33,11 @@ class _PghoneLoginScreenState extends State<PghoneLoginScreen> {
                 text:
                     "Enter your phone number to use foodly \nand enjoy your food :)",
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
               Form(
                 key: _formKey,
                 child: TextFormField(
-                  validator: phoneNumberValidator,
+                  validator: phoneNumberValidator.call,
                   autofocus: true,
                   onSaved: (value) => _phoneNumber = value,
                   style: Theme.of(context)
@@ -69,7 +69,7 @@ class _PghoneLoginScreenState extends State<PghoneLoginScreen> {
                   } else {}
                 },
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
             ],
           ),
         ),

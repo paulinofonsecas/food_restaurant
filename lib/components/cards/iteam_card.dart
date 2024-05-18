@@ -6,7 +6,7 @@ import '../small_dot.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.image,
@@ -14,7 +14,7 @@ class ItemCard extends StatelessWidget {
     required this.price,
     required this.priceRange,
     required this.press,
-  }) : super(key: key);
+  });
 
   final String? title, description, image, foodType, priceRange;
   final double? price;
@@ -45,7 +45,7 @@ class ItemCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: defaultPadding),
+              const SizedBox(width: kDefaultPadding),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,7 +73,7 @@ class ItemCard extends StatelessWidget {
                         ),
                         const Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: defaultPadding / 2),
+                              horizontal: kDefaultPadding / 2),
                           child: SmallDot(),
                         ),
                         Text(foodType!, style: textStyle),

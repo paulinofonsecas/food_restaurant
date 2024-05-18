@@ -5,10 +5,10 @@ import '../constants.dart';
 
 class PriceRangeAndFoodtype extends StatelessWidget {
   const PriceRangeAndFoodtype({
-    Key? key,
+    super.key,
     this.priceRange = "\$\$",
     required this.foodType,
-  }) : super(key: key);
+  });
 
   final String priceRange;
   final List<String> foodType;
@@ -34,7 +34,7 @@ class PriceRangeAndFoodtype extends StatelessWidget {
 
   Padding buildSmallDot() {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
       child: SmallDot(),
     );
   }

@@ -6,9 +6,9 @@ import 'big_card_image.dart';
 
 class BigCardImageSlide extends StatefulWidget {
   const BigCardImageSlide({
-    Key? key,
+    super.key,
     required this.images,
-  }) : super(key: key);
+  });
 
   final List images;
 
@@ -36,8 +36,8 @@ class _BigCardImageSlideState extends State<BigCardImageSlide> {
                 BigCardImage(image: widget.images[index]),
           ),
           Positioned(
-            bottom: defaultPadding,
-            right: defaultPadding,
+            bottom: kDefaultPadding,
+            right: kDefaultPadding,
             child: Row(
               children: List.generate(
                 widget.images.length,

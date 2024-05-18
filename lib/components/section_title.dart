@@ -4,11 +4,11 @@ import '../constants.dart';
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
-    Key? key,
+    super.key,
     this.isMainSection = true,
     required this.title,
     required this.press,
-  }) : super(key: key);
+  });
 
 // Main Section means on Home page section
   final bool isMainSection;
@@ -18,7 +18,7 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -31,7 +31,7 @@ class SectionTitle extends StatelessWidget {
           GestureDetector(
             onTap: press,
             child: Text(
-              isMainSection ? "See all" : "Clear all".toUpperCase(),
+              isMainSection ? "Ver tudo" : "Limpar tudo".toUpperCase(),
               style: isMainSection
                   ? Theme.of(context)
                       .textTheme

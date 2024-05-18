@@ -6,14 +6,14 @@ class RestaurantInfo extends StatelessWidget {
   final String name;
 
   const RestaurantInfo({
-    Key? key,
+    super.key,
     required this.name,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,7 +22,7 @@ class RestaurantInfo extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
             maxLines: 1,
           ),
-          const SizedBox(height: defaultPadding / 2),
+          const SizedBox(height: kDefaultPadding / 2),
           // แสดงรายละเอียดอื่นๆ
         ],
       ),

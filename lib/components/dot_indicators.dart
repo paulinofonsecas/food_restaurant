@@ -4,11 +4,11 @@ import '../constants.dart';
 
 class DotIndicator extends StatelessWidget {
   const DotIndicator({
-    Key? key,
+    super.key,
     this.isActive = false,
     this.activeColor = primaryColor,
     this.inActiveColor = const Color(0xFF868686),
-  }) : super(key: key);
+  });
 
   final bool isActive;
   final Color activeColor, inActiveColor;
@@ -17,7 +17,7 @@ class DotIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: kDefaultDuration,
-      margin: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+      margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
       height: 5,
       width: 8,
       decoration: BoxDecoration(

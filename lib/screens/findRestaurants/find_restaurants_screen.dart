@@ -27,7 +27,7 @@ class FindRestaurantsScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,7 +59,7 @@ class FindRestaurantsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
 
               // New Address Form
               Form(
@@ -85,7 +85,7 @@ class FindRestaurantsScreen extends StatelessWidget {
                         contentPadding: kTextFieldPadding,
                       ),
                     ),
-                    const SizedBox(height: defaultPadding),
+                    const SizedBox(height: kDefaultPadding),
                     ElevatedButton(
                       onPressed: () {
                         // Use your onw way how you combine both New Address and Current Location
@@ -102,7 +102,7 @@ class FindRestaurantsScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: kDefaultPadding),
             ],
           ),
         ),
