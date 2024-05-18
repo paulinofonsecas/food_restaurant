@@ -24,16 +24,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
-        // elevatedButtonTheme: ElevatedButtonThemeData(
-        //   style: ElevatedButton.styleFrom(
-        //     // backgroundColor: primaryColor,
-        //     // foregroundColor: Colors.white,
-        //     minimumSize: const Size(double.infinity, 40),
-        //     shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.circular(8),
-        //     ),
-        //   ),
-        // ),
         textTheme: const TextTheme(
           bodyMedium: TextStyle(color: bodyTextColor),
           bodySmall: TextStyle(color: bodyTextColor),
